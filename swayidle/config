@@ -1,0 +1,11 @@
+# dim the screen (2 minutes)
+timeout 120 'drowsy_dim' resume 'drowsy_dim -r'
+# lock (5 minutes)
+timeout 300 'swaylock -f'
+# sleep (15 minutes)
+timeout 900 'systemctl suspend'
+
+before-sleep 'swaylock -f'
+# before-sleep 'swaynag -m "hi"'
+# before-sleep 'swaymsg "output * power off"'
+after-resume 'swaymsg "output * power on"'
